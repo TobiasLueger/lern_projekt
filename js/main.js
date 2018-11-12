@@ -109,50 +109,6 @@ const button_bottom = document.querySelector("#move_bottom");
 const button_left = document.querySelector("#move_left");
 const button_right = document.querySelector("#move_right");
 
-//Make the DIV element draggagle:
-dragElement(player);
-
-function dragElement(elmnt) {
-	var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-	if (document.getElementById(elmnt.id + "header")) {
-		/* if present, the header is where you move the DIV from:*/
-		document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-	} else {
-		/* otherwise, move the DIV from anywhere inside the DIV:*/
-		elmnt.onmousedown = dragMouseDown;
-	}
-
-	function dragMouseDown(e) {
-		e = e || window.event;
-		e.preventDefault();
-		// get the mouse cursor position at startup:
-		pos3 = e.clientX;
-		pos4 = e.clientY;
-		document.onmouseup = closeDragElement;
-		// call a function whenever the cursor moves:
-		document.onmousemove = elementDrag;
-	}
-
-	function elementDrag(e) {
-		e = e || window.event;
-		e.preventDefault();
-		// calculate the new cursor position:
-		pos1 = pos3 - e.clientX;
-		pos2 = pos4 - e.clientY;
-		pos3 = e.clientX;
-		pos4 = e.clientY;
-		// set the element's new position:
-		elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-		elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-	}
-
-	function closeDragElement() {
-		/* stop moving when mouse button is released:*/
-		document.onmouseup = null;
-		document.onmousemove = null;
-	}
-}
-
 console.log(player);
 
 button_top.addEventListener("click", () => {
@@ -219,6 +175,83 @@ function getTranslateYValue(translateString){
 
 	return res;
 }
+
+/*-- Draggeble Div--*/
+
+//Make the DIV element draggagle:
+dragElement(document.getElementById("player"));
+
+function dragElement(elmnt) {
+	let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+	if (elmnt) {
+		elmnt.onmousedown = dragMouseDown;
+	}
+
+	function dragMouseDown(e) {
+		e = e || window.event;
+		e.preventDefault();
+		console.log(e.clientX);
+		// get the mouse cursor position at startup:
+		pos3 = e.clientX;
+		pos4 = e.clientY;
+		document.onmouseup = closeDragElement;
+		// call a function whenever the cursor moves:
+		document.onmousemove = elementDrag;
+	}
+
+	function elementDrag(e) {
+		e = e || window.event;
+		e.preventDefault();
+		// calculate the new cursor position:
+		pos1 = pos3 - e.clientX;
+		pos2 = pos4 - e.clientY;
+		pos3 = e.clientX;
+		pos4 = e.clientY;
+		// set the element's new position:
+		elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+		elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+	}
+
+	function closeDragElement() {
+		/* stop moving when mouse button is released:*/
+		document.onmouseup = null;
+		document.onmousemove = null;
+	}
+}
+
+/*-- Mous Move effect --*/
+
+document.onmousemove = (e) => {
+	let p1 = e.clientX + 50;
+	let p2 = e.clientY + 50;
+
+	console.log(p1);
+	console.log(p2);
+
+	let node = document.createElement("div");
+
+	let letters = '0123456789ABCDEF';
+	let color = '#';
+	for (let i = 0; i < 6; i++) {
+		color += letters[Math.floor(Math.random() * 16)];
+		color.toString();
+	}
+
+
+	let randomSize = Math.floor(Math.random() * Math.floor(20));
+
+	node.style.height = randomSize + "px";
+	node.style.width = randomSize + "px";
+	node.style.top = p2 + "px";
+	node.style.left = p1 + "px";
+	node.style.position = "absolute";
+	node.style.borderRadius = "50px";
+	node.style.backgroundColor = color;
+
+	document.querySelector("body").appendChild(node);
+
+
+};
 
 
 
