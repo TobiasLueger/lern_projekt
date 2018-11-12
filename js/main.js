@@ -222,8 +222,8 @@ function dragElement(elmnt) {
 /*-- Mous Move effect --*/
 
 document.onmousemove = (e) => {
-	let p1 = e.clientX + 50;
-	let p2 = e.clientY + 50;
+	let p1 = e.clientX;
+	let p2 = e.clientY;
 
 	console.log(p1);
 	console.log(p2);
