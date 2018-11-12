@@ -250,7 +250,7 @@ document.onmousemove = (e) => {
 
 	document.querySelector("body").appendChild(node);
 
-	setTimeout(() => document.querySelector("body").removeChild(node) , 1000);
+	setTimeout(() => document.querySelector("body").removeChild(node) , 500);
 
 
 };
