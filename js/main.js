@@ -245,9 +245,40 @@ document.onmousemove = (e) => {
     node.style.top = p2 + "px";
     node.style.left = p1 + "px";
     node.style.position = "absolute";
-    node.style.borderRadius = "50px";
+    node.style.borderRadius = "0px";
     node.style.backgroundColor = color;
+
+
+
     node.classList.add("popDiv");
+
+    let miniNode1 = document.createElement("div");
+    let miniNode2 = document.createElement("div");
+    function add(miniNode1) {
+        /* stop moving when mouse button is released:*/
+        document.onmouseup = null;
+        document.onmousemove = null;
+    }
+
+    miniNode1.style.height = randomSize + "px";
+    miniNode1.style.width = randomSize + "px";
+    miniNode1.style.top = p2 - p2 + 50 + "px";
+    miniNode1.style.left = p1 - p1 + 50 + "px";
+    miniNode1.style.position = "absolute";
+    miniNode1.style.borderRadius = "0px";
+    miniNode1.style.backgroundColor = color;
+
+    setTimeout(function(){
+        node.classList.add('rotate');
+        node.style.height = randomSize + "px";
+        node.style.width = randomSize + "px";
+
+        miniNode1.classList.add('rotate');
+        miniNode1.style.height = randomSize + "px";
+        miniNode1.style.width = randomSize + "px";
+    }, 50);
+
+    node.appendChild(miniNode1);
 
     document.querySelector("body").appendChild(node);
 
