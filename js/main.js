@@ -178,7 +178,6 @@ function getTranslateYValue(translateString){
 
 /*-- Draggeble Div--*/
 
-//Make the DIV element draggagle:
 dragElement(document.getElementById("player"));
 
 function dragElement(elmnt) {
@@ -219,73 +218,94 @@ function dragElement(elmnt) {
     }
 }
 
-/*-- Mous Move effect --*/
+/**
+ *
+ * Mous Move effect
+ *
+ **/
 
-document.onmousemove = (e) => {
-    let p1 = e.clientX;
-    let p2 = e.clientY;
+let myVar = false;
 
-    /*console.log(p1);
-    console.log(p2);*/
+function myFunc(myElement) {
+	let ele = myElement;
 
-    let node = document.createElement("div");
+	myVar = !myVar;
+	if (myVar) {
+		document.addEventListener('mousemove', myHandler, false);
+	} else {
+		document.removeEventListener('mousemove', myHandler, false);
+	}
+}
 
-    let letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-        color.toString();
-    }
+function myHandler(e) {
+	let p1 = e.clientX;
+	let p2 = e.clientY;
+
+	let node = document.createElement("div");
+
+	let miniNode1 = document.createElement("div");
+	let miniNode2 = document.createElement("div");
+
+	function randomColor() {
+		let letters = '0123456789ABCDEF';
+		let color = '#';
+		for (let i = 0; i < 6; i++) {
+			color += letters[Math.floor(Math.random() * 16)];
+		}
+		return color;
+	}
+
+	let randomSize = Math.floor(Math.random() * Math.floor(20));
+
+	function add(node) {
+		if (node === miniNode1 || node === miniNode2) {
+			node.style.height = randomSize + "px";
+			node.style.width = randomSize + "px";
+			node.style.top = p2 - p2 + 50 + "px";
+			node.style.left = p1 - p1 + 50 + "px";
+			node.style.position = "absolute";
+			node.style.borderRadius = "0px";
+			node.style.backgroundColor = randomColor().toString();
+
+			setTimeout(function(){
+				node.classList.add('rotate');
+				node.style.height = randomSize + "px";
+				node.style.width = randomSize + "px";
+			}, 50);
+		} else {
+			node.style.height = randomSize + "px";
+			node.style.width = randomSize + "px";
+			node.style.top = p2 + "px";
+			node.style.left = p1 + "px";
+			node.style.position = "absolute";
+			node.style.borderRadius = "0px";
+			node.style.backgroundColor = randomColor().toString();
+
+			setTimeout(function(){
+				node.classList.add('rotate');
+				node.style.height = randomSize + "px";
+				node.style.width = randomSize + "px";
+			}, 50);
+		}
+
+	}
+
+	add(node);
+	add(miniNode1);
+	add(miniNode2);
 
 
-    let randomSize = Math.floor(Math.random() * Math.floor(20));
 
-    node.style.height = randomSize + "px";
-    node.style.width = randomSize + "px";
-    node.style.top = p2 + "px";
-    node.style.left = p1 + "px";
-    node.style.position = "absolute";
-    node.style.borderRadius = "0px";
-    node.style.backgroundColor = color;
+	node.classList.add("popDiv");
 
 
+	node.appendChild(miniNode1);
+	node.appendChild(miniNode2);
 
-    node.classList.add("popDiv");
+	document.querySelector("body").appendChild(node);
 
-    let miniNode1 = document.createElement("div");
-    let miniNode2 = document.createElement("div");
-    function add(miniNode1) {
-        /* stop moving when mouse button is released:*/
-        document.onmouseup = null;
-        document.onmousemove = null;
-    }
-
-    miniNode1.style.height = randomSize + "px";
-    miniNode1.style.width = randomSize + "px";
-    miniNode1.style.top = p2 - p2 + 50 + "px";
-    miniNode1.style.left = p1 - p1 + 50 + "px";
-    miniNode1.style.position = "absolute";
-    miniNode1.style.borderRadius = "0px";
-    miniNode1.style.backgroundColor = color;
-
-    setTimeout(function(){
-        node.classList.add('rotate');
-        node.style.height = randomSize + "px";
-        node.style.width = randomSize + "px";
-
-        miniNode1.classList.add('rotate');
-        miniNode1.style.height = randomSize + "px";
-        miniNode1.style.width = randomSize + "px";
-    }, 50);
-
-    node.appendChild(miniNode1);
-
-    document.querySelector("body").appendChild(node);
-
-    //setTimeout(() => document.querySelector("body").removeChild(node) , 500);
-
-
-};
+	setTimeout(() => document.querySelector("body").removeChild(node) , 500);
+}
 
 document.onkeypress = (key) => {
     if (key.charCode === 13) {
@@ -302,5 +322,27 @@ document.onkeypress = (key) => {
 
 };
 
+/**
+ *
+ *
+ * 3D-Modules
+ *
+ * **/
 
+let cube = document.querySelector('.cube');
+let radioGroup = document.querySelector('.radio-group');
+let currentClass = '';
 
+function changeSide() {
+	let checkedRadio = radioGroup.querySelector(':checked');
+	let showClass = 'show-' + checkedRadio.value;
+	if ( currentClass ) {
+		cube.classList.remove( currentClass );
+	}
+	cube.classList.add( showClass );
+	currentClass = showClass;
+}
+// set initial side
+changeSide();
+
+radioGroup.addEventListener( 'change', changeSide );
