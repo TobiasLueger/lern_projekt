@@ -1,0 +1,19 @@
+{
+  "name": "lernprojekt",
+  "version": "1.0.0",
+  "description": "Simple repo to test my skills!",
+  "main": "js/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TobiasLueger/lern_projekt.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TobiasLueger/lern_projekt/issues"
+  },
+  "homepage": "https://github.com/TobiasLueger/lern_projekt#readme"
+}
