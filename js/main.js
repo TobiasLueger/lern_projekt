@@ -346,3 +346,17 @@ function changeSide() {
 changeSide();
 
 radioGroup.addEventListener( 'change', changeSide );
+
+/**
+ *
+ * Color Picker bg change
+ *
+ * **/
+
+function bgColorPick() {
+    let wert = document.getElementById("color-picker").value;
+    let body = document.body;
+
+    body.style.backgroundColor = wert;
+}
+
