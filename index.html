@@ -1,114 +1,119 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="de">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title></title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
-  <!-- Place favicon.ico in the root directory -->
+	<link rel="manifest" href="site.webmanifest">
+	<link rel="apple-touch-icon" href="icon.png">
+	<!-- Place favicon.ico in the root directory -->
 
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
+	<!--<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">-->
+
+	<link rel="stylesheet" href="scss/normalize.css">
+	<link rel="stylesheet" href="scss/main.css">
 </head>
 
 <body>
-  <!--[if lte IE 9]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-  <![endif]-->
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
+	your browser</a> to improve your experience and security.</p>
+<![endif]-->
 
-  <!-- Add your site or application content here -->
-  <header>
-    <h1>Newsfeed Page</h1>
-  </header>
-  <main>
-    <button onclick='
+<!-- Add your site or application content here -->
+<header>
+	<h1>Test Page</h1>
+</header>
+<main>
+	<div class="btn imgReload"></div>
+	<h2>Newsfeed Page</h2>
+	<button class="btn btn-primary" onclick='
       let usernameRegPromt = prompt("Username?");
       let mailRegPromt = prompt("Mail?");
       let passwordRegPromt = prompt("Password?");
 
       RegIn(usernameRegPromt, passwordRegPromt, mailRegPromt);
     '>
-      Register
-    </button>
+		Register
+	</button>
 
-    <button onclick='
+	<button onclick='
       let usernamePromt = prompt("What is your username?");
       let passwordPromt = prompt("What is your password?");
 
       signIn(usernamePromt, passwordPromt);
     '>
-      LogIn
-    </button>
+		LogIn
+	</button>
 
-    <h2>Newsfeed deiner Freunde</h2>
-    <div id="newsfeed"></div>
+	<h2>Newsfeed deiner Freunde</h2>
+	<div id="newsfeed"></div>
 
-    <h2>Draggable and Button moving Block</h2>
-    <div>
-      <button class="move" id="move_top">top</button>
-      <button class="move" id="move_bottom">bottom</button>
-      <button class="move" id="move_left">left</button>
-      <button class="move" id="move_right">right</button>
+	<h2>Draggable and Button moving Block</h2>
+	<div>
+		<button class="btn btn-primary move" id="move_top">top</button>
+		<button class="btn btn-primary move" id="move_bottom">bottom</button>
+		<button class="btn btn-primary move" id="move_left">left</button>
+		<button class="btn btn-primary move" id="move_right">right</button>
 
-      <div id="player" class="player" style="transform: translate(0px, 0px)">
-        <div id="playerHeader"></div>
-      </div>
-    </div>
+		<div id="player" class="player" style="transform: translate(0px, 0px)">
+			<div id="playerHeader"></div>
+		</div>
+	</div>
 
-    <br>
-    <br>
+	<br>
+	<br>
 
-    <h2>ON/OFF Line Art behind Mouse</h2>
-    <div class="align-center">
-      <p>Press the button to toggle draw event !!!</p>
-      <button onclick="myFunc(this)">click me</button>
-      <p>Press Enter to reset drawing!!!</p>
-    </div>
+	<h2>ON/OFF Line Art behind Mouse</h2>
+	<div class="align-center">
+		<p>Press the button to toggle draw event !!!</p>
+		<button class="btn" onclick="myFunc(this)">click me</button>
+		<p>Press Enter to reset drawing!!!</p>
+	</div>
 
-    <h2>3D-CUBE</h2>
+	<h2>3D-CUBE</h2>
 
-    <div class="drei-dConrainer">
-      <div class="scene">
-        <div class="cube">
-          <div class="cube__face cube__face--front">front</div>
-          <div class="cube__face cube__face--back">back</div>
-          <div class="cube__face cube__face--right">right</div>
-          <div class="cube__face cube__face--left">left</div>
-          <div class="cube__face cube__face--top">top</div>
-          <div class="cube__face cube__face--bottom">bottom</div>
-        </div>
-      </div>
-      <p class="radio-group">
-        <label>
-          <input type="radio" name="rotate-cube-side" value="front" checked /> front
-        </label>
-        <label>
-          <input type="radio" name="rotate-cube-side" value="right" /> right
-        </label>
-        <label>
-          <input type="radio" name="rotate-cube-side" value="back" /> back
-        </label>
-        <label>
-          <input type="radio" name="rotate-cube-side" value="left" /> left
-        </label>
-        <label>
-          <input type="radio" name="rotate-cube-side" value="top" /> top
-        </label>
-        <label>
-          <input type="radio" name="rotate-cube-side" value="bottom" /> bottom
-        </label>
-      </p>
-    </div>
+	<div class="drei-dConrainer">
+		<div class="scene">
+			<div class="cube">
+				<div class="cube__face cube__face--front">front</div>
+				<div class="cube__face cube__face--back">back</div>
+				<div class="cube__face cube__face--right">right</div>
+				<div class="cube__face cube__face--left">left</div>
+				<div class="cube__face cube__face--top">top</div>
+				<div class="cube__face cube__face--bottom">bottom</div>
+			</div>
+		</div>
+		<p class="radio-group">
+			<label>
+				<input type="radio" name="rotate-cube-side" value="front" checked/> front
+			</label>
+			<label>
+				<input type="radio" name="rotate-cube-side" value="right"/> right
+			</label>
+			<label>
+				<input type="radio" name="rotate-cube-side" value="back"/> back
+			</label>
+			<label>
+				<input type="radio" name="rotate-cube-side" value="left"/> left
+			</label>
+			<label>
+				<input type="radio" name="rotate-cube-side" value="top"/> top
+			</label>
+			<label>
+				<input type="radio" name="rotate-cube-side" value="bottom"/> bottom
+			</label>
+		</p>
+	</div>
 
-    <h2>SVG's</h2>
+	<h2>SVG's</h2>
 
-    <div class="lineart">
-      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 225" style="enable-background:new 0 0 300 225;" xml:space="preserve">
+	<div class="lineart">
+		<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 300 225" style="enable-background:new 0 0 300 225;" xml:space="preserve">
 			<ellipse class="st5" id="sh3" cx="150.5" cy="224.75" rx="77.5" ry="77.5"></ellipse>
 
 			<ellipse class="st5" id="sh2" cx="150.5" cy="224.75" rx="57.5" ry="57.5"></ellipse>
@@ -166,95 +171,98 @@
 			<circle id="XMLID_14_" class="st3" cx="174.5" cy="92.5" r="1.0"></circle>
 
       </svg>
-    </div>
+	</div>
 
-    <h2>3D Menu Bar</h2>
-    <div class="menu-bar">
-      <ul>
-        <li>
-          <a class='list-item' href=''>
-            <i class='icon-reorder'></i>
-          </a>
-        </li>
-        <li>
-          <a class='list-item' href=''>
-            <i class='icon-th-large'></i>
-          </a>
-        </li>
-        <li>
-          <a class='list-item' href=''>
-            <i class='icon-bar-chart'></i>
-          </a>
-        </li>
-        <li>
-          <a class='list-item' href=''>
-            <i class='icon-tasks'></i>
-          </a>
-        </li>
-        <li>
-          <a class='list-item' href=''>
-            <i class='icon-bell'></i>
-          </a>
-        </li>
-        <li>
-          <a class='list-item' href=''>
-            <i class='icon-archive'></i>
-          </a>
-        </li>
-        <li>
-          <a class='list-item' href=''>
-            <i class='icon-comment'></i>
-          </a>
-        </li>
-        <li>
-          <a class='list-item' href=''>
-            <i class='icon-sitemap'></i>
-          </a>
-        </li>
-        <li>
-          <a class='list-item' href=''>
-            <i class='icon-thumbs-up'></i>
-          </a>
-        </li>
-        <li>
-          <a class='list-item' href=''>
-            <i class='icon-tumblr'></i>
-          </a>
-        </li>
-      </ul>
-    </div>
-
-
-    <div>
-
-      <input type="color" id="color-picker" onchange="bgColorPick()">
-
-    </div>
+	<h2>3D Menu Bar</h2>
+	<div class="menu-bar">
+		<ul>
+			<li>
+				<a class='list-item' href=''>
+					<i class='icon-reorder'></i>
+				</a>
+			</li>
+			<li>
+				<a class='list-item' href=''>
+					<i class='icon-th-large'></i>
+				</a>
+			</li>
+			<li>
+				<a class='list-item' href=''>
+					<i class='icon-bar-chart'></i>
+				</a>
+			</li>
+			<li>
+				<a class='list-item' href=''>
+					<i class='icon-tasks'></i>
+				</a>
+			</li>
+			<li>
+				<a class='list-item' href=''>
+					<i class='icon-bell'></i>
+				</a>
+			</li>
+			<li>
+				<a class='list-item' href=''>
+					<i class='icon-archive'></i>
+				</a>
+			</li>
+			<li>
+				<a class='list-item' href=''>
+					<i class='icon-comment'></i>
+				</a>
+			</li>
+			<li>
+				<a class='list-item' href=''>
+					<i class='icon-sitemap'></i>
+				</a>
+			</li>
+			<li>
+				<a class='list-item' href=''>
+					<i class='icon-thumbs-up'></i>
+				</a>
+			</li>
+			<li>
+				<a class='list-item' href=''>
+					<i class='icon-tumblr'></i>
+				</a>
+			</li>
+		</ul>
+	</div>
 
 
+	<div>
+
+		<input type="color" id="color-picker" onchange="bgColorPick()">
+
+	</div>
 
 
+</main>
 
-  </main>
+<footer>
 
-  <footer>
-
-  </footer>
+</footer>
 
 
-  <!-- Begin JS `´ -->
-  <script src="js/vendor/modernizr-{{MODERNIZR_VERSION}}.min.js"></script>
-  <script src="https://code.jquery.com/jquery-{{JQUERY_VERSION}}.min.js" integrity="{{JQUERY_SRI_HASH}}" crossorigin="anonymous"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')</script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
+<!-- Begin JS `´ -->
+<script src="js/vendor/modernizr-{{MODERNIZR_VERSION}}.min.js"></script>
+<script src="https://code.jquery.com/jquery-{{JQUERY_VERSION}}.min.js" integrity="{{JQUERY_SRI_HASH}}"
+		crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')</script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
 
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('send', 'pageview')
-  </script>
-  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+<script>
+	window.ga = function () {
+		ga.q.push(arguments)
+	};
+	ga.q = [];
+	ga.l = +new Date;
+	ga('create', 'UA-XXXXX-Y', 'auto');
+	ga('send', 'pageview')
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
 </body>
 
 </html>

@@ -266,6 +266,7 @@ function myHandler(e) {
 			node.style.position = "absolute";
 			node.style.borderRadius = "0px";
 			node.style.backgroundColor = randomColor().toString();
+			//node.style.backgroundImage = `url('${setImg()}')`;
 
 			setTimeout(function(){
 				node.classList.add('rotate');
@@ -359,4 +360,99 @@ function bgColorPick() {
 
     body.style.backgroundColor = wert;
 }
+
+/**
+ *
+ * Get img from api and put them in the side
+ *
+ * **/
+
+let count = 0;
+
+function setImg() {
+
+	if (count <= 0) {
+		let globalDiv = document.querySelector(".imgReload");
+		let container = document.createElement("div");
+		container.style.display = "flex";
+		container.style.flexWrap = "wrap";
+
+		let button = document.createElement("button");
+		button.innerHTML = "Mehr laden";
+		button.addEventListener('click', setImg);
+		fetch('https://jsonplaceholder.typicode.com/photos')
+			.then(function(response) {
+				if (response.ok)
+					return response.json();
+				else
+					throw new Error(`IMG's konnte nicht geaden werden`);
+			})
+			.then(imgs =>  {
+
+
+				imgs.filter(id => id.id <= 8).map(x => {
+					count++;
+					let img = x.thumbnailUrl.replace(/\/150/g, "/50");
+
+					let link = document.createElement("a");
+					link.href = `${img}`;
+					let node = document.createElement("div");
+					node.style.height = "50px";
+					node.style.width = "50px";
+					node.style.backgroundImage = `url('${img}')`;
+					link.appendChild(node);
+					container.appendChild(link);
+					globalDiv.appendChild(container);
+					globalDiv.appendChild(button);
+
+					console.log(img);
+				});
+
+			})
+			.catch(function(err) {
+				console.log("Error")
+			});
+	} else{
+		fetch('https://jsonplaceholder.typicode.com/photos')
+			.then(function(response) {
+				if (response.ok)
+					return response.json();
+				else
+					throw new Error(`IMG's konnte nicht geaden werden`);
+			})
+			.then(imgs =>  {
+				let totalCount = count + 8;
+
+				imgs.filter(id => id.id + count <= totalCount).map(x => {
+					count++
+					let img = x[x + count].thumbnailUrl.replace(/\/150/g, "/50");
+					/*
+					let link = document.createElement("a");
+					link.href = `${img}`;
+					let node = document.createElement("div");
+					node.style.height = "50px";
+					node.style.width = "50px";
+					node.style.backgroundImage = `url('${img}')`;
+					link.appendChild(node);
+					container.appendChild(link);
+					globalDiv.appendChild(container);
+					globalDiv.appendChild(button);
+					*/
+					console.log(img);
+				});
+
+			})
+			.catch(function(err) {
+				console.log("Error")
+			});
+		console.log(count);
+	}
+}
+
+setImg();
+
+
+
+
+
 
