@@ -21,5 +21,7 @@
   }
 }());
 
+console.log("test");
+
 
 // Place any jQuery/helper plugins in here.

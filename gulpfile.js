@@ -12,7 +12,8 @@ const server = browserSync.create();
 const paths = {
 	scripts: {
 		html: './*.html',
-		js: 'js/*.js',
+		js_main: 'js/*.js',
+		js_partials: 'js/partials/*.js',
 		scss_main: 'scss/*.scss',
 		scss_partials: 'scss/partials/*.scss',
 		dest: 'public/css/'
@@ -22,7 +23,7 @@ const paths = {
 const clean = () => del(['dist']);
 
 function scripts() {
-	return gulp.src(paths.scripts.js && paths.scripts.scss_main, { sourcemaps: true })
+	return gulp.src(paths.scripts.scss_main, { sourcemaps: true })
 		// .pipe(uglify())
 		// .pipe(babel())
 		.pipe(sass())
@@ -44,7 +45,7 @@ function serve(done) {
 	done();
 }
 
-const watch = () => gulp.watch(paths.scripts.js && paths.scripts.scss_main && paths.scripts.scss_partials && paths.scripts.html, gulp.series(scripts, reload));
+const watch = () => gulp.watch(paths.scripts.js_main && paths.scripts.js_partials && paths.scripts.scss_main && paths.scripts.scss_partials && paths.scripts.html, gulp.series(scripts, reload));
 
 gulp.task('default', gulp.series(clean, scripts, serve, watch),);
 

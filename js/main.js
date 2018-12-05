@@ -366,7 +366,7 @@ function bgColorPick() {
  * Get img from api and put them in the side
  *
  * **/
-
+console.log("help");
 let count = 0;
 
 function setImg() {
@@ -378,6 +378,8 @@ function setImg() {
 		container.style.flexWrap = "wrap";
 
 		let button = document.createElement("button");
+		button.classList.add("btn");
+		button.classList.add("btn-primary");
 		button.innerHTML = "Mehr laden";
 		button.addEventListener('click', setImg);
 		fetch('https://jsonplaceholder.typicode.com/photos')
