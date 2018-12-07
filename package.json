@@ -5,11 +5,10 @@
   "main": "js/main.js",
   "scripts": {
     "start": "gulp",
-    "build": "gulp build --production",
-    "zip": "gulp build --production && gulp zip",
-    "export": "gulp build --production && gulp export",
-    "styleguide": "kss --config ./config/kss-config.json",
-    "dashboard": "webpack-dashboard gulp",
+    "build": "gulp build --pu",
+    "deleteAll": "gulp deleteAll",
+    "deleteBuild": "gulp deleteBuild",
+    "deleteDocs": "gulp deleteDocs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

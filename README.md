@@ -26,6 +26,12 @@ $ npm install
 $ npm start
 ```
 
+- This command minifies all SCSS and JS Files and copys them into the 'public' dir.
+- Also all HTML files are copyed into the 'public' dir.
+- Then a browsersync server will be started with the 'public' folder as its base dir.
+- After this gulp is watching for file changes in all SCSS, JS and HTML files
+- So if you change a file gulp will track it and SCSS and JS files will be minified again and then 
+
 
 [NODE PAGE]: https://nodejs.org/
 [NODE VERSION BADGE]: https://img.shields.io/badge/node-v8.11.3-orange.svg
