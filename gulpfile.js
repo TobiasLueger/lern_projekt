@@ -63,10 +63,6 @@ function copyHtmlPub() {
 function styles() {
 	return gulp.src(paths.styles.scss_main, { sourcemaps: true })
 		.pipe(sass())
-		.pipe(uglifycss({
-			"maxLineLen": 80,
-			"uglyComments": true
-		}))
 		.pipe(gulp.dest(paths.expo.dest_css));
 }
 
@@ -75,7 +71,6 @@ function scripts() {
 		.pipe(babel({
 			presets: ['@babel/env']
 		}))
-		.pipe(uglify())
 		.pipe(gulp.dest(paths.expo.dest_js));
 }
 

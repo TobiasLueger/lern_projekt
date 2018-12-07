@@ -6,6 +6,8 @@
 # lern_projekt
 *Simple repo to learn new things!*
 
+- It works fine together with gits GitHub Pages
+
 ## What have I done?
 
 - [Gulp](https://gulpjs.com/): I have build my own workflow with gulp and npm scripts.
@@ -13,12 +15,16 @@
 
 
 ## Documentation
+### Gulp Workflow
 
-**Install all from package.json**
+**Install all packages from package.json**
 
 ```
 $ npm install
 ```
+
+<br>
+<br>
 
 **Get started**
 
@@ -26,11 +32,28 @@ $ npm install
 $ npm start
 ```
 
-- This command minifies all SCSS and JS Files and copys them into the 'public' dir.
-- Also all HTML files are copyed into the 'public' dir.
+- This command generates a 'public' folder
+- Then it changes all SCSS Files to CSS and copies them into the 'public' dir.
+- Also all HTML and JS files are copied into the 'public' folder.
+- Then a browsersync server will be started with the 'public' folder as it base dir.
+- After this gulp is watching for file changes in all SCSS, JS and HTML files
+- And if you change a file gulp will track it and update it in the public folder.
+
+<br>
+<br>
+
+**Build a new folder with all relevant files**
+
+```
+$ npm run build
+```
+
+- This command generates a 'docs' folder
+- Then it chanes all SCSS and JS Files to CSS and  and copys them into the 'public' dir.
+- Also all HTML files are copyed into the 'public' folder.
 - Then a browsersync server will be started with the 'public' folder as its base dir.
 - After this gulp is watching for file changes in all SCSS, JS and HTML files
-- So if you change a file gulp will track it and SCSS and JS files will be minified again and then 
+- And if you change a file gulp will track it and update it
 
 
 [NODE PAGE]: https://nodejs.org/
